@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7DACB3E-FD76-4B08-89FB-EA1DEFFDD5B8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ClientDB4._0</RootNamespace>
+    <AssemblyName>ClientDB4.0</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientEdit.Designer.cs">
+      <DependentUpon>ClientEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDB\Client.cs" />
+    <Compile Include="ModelDB\ClientService.cs" />
+    <Compile Include="ModelDB\DocumentByService.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDB\Gender.cs" />
+    <Compile Include="ModelDB\Manufacturer.cs" />
+    <Compile Include="ModelDB\ModelDB.cs" />
+    <Compile Include="ModelDB\Product.cs" />
+    <Compile Include="ModelDB\ProductPhoto.cs" />
+    <Compile Include="ModelDB\ProductSale.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ModelDB\Service.cs" />
+    <Compile Include="ModelDB\ServicePhoto.cs" />
+    <Compile Include="ModelDB\sysdiagrams.cs" />
+    <Compile Include="ModelDB\Tag.cs" />
+    <Compile Include="ModelDB\TagOfClient.cs" />
+    <EmbeddedResource Include="ClientEdit.resx">
+      <DependentUpon>ClientEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beauty_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\1.jpg" />
+    <Resource Include="Image\10.jpg" />
+    <Resource Include="Image\11.jpg" />
+    <Resource Include="Image\12.jpg" />
+    <Resource Include="Image\13.jpg" />
+    <Resource Include="Image\14.jpg" />
+    <Resource Include="Image\15.jpg" />
+    <Resource Include="Image\16.jpg" />
+    <Resource Include="Image\17.jpg" />
+    <Resource Include="Image\18.jpg" />
+    <Resource Include="Image\19.jpg" />
+    <Resource Include="Image\2.jpg" />
+    <Resource Include="Image\20.jpg" />
+    <Resource Include="Image\21.jpg" />
+    <Resource Include="Image\22.jpg" />
+    <Resource Include="Image\23.jpg" />
+    <Resource Include="Image\24.jpg" />
+    <Resource Include="Image\25.jpg" />
+    <Resource Include="Image\26.jpg" />
+    <Resource Include="Image\27.jpg" />
+    <Resource Include="Image\28.jpg" />
+    <Resource Include="Image\29.jpg" />
+    <Resource Include="Image\3.jpg" />
+    <Resource Include="Image\30.jpg" />
+    <Resource Include="Image\31.jpg" />
+    <Resource Include="Image\32.jpg" />
+    <Resource Include="Image\33.jpg" />
+    <Resource Include="Image\34.jpg" />
+    <Resource Include="Image\35.jpg" />
+    <Resource Include="Image\36.jpg" />
+    <Resource Include="Image\37.jpg" />
+    <Resource Include="Image\38.jpg" />
+    <Resource Include="Image\39.jpg" />
+    <Resource Include="Image\4.jpg" />
+    <Resource Include="Image\40.jpg" />
+    <Resource Include="Image\41.jpg" />
+    <Resource Include="Image\42.jpg" />
+    <Resource Include="Image\43.jpg" />
+    <Resource Include="Image\44.jpg" />
+    <Resource Include="Image\47.jpg" />
+    <Resource Include="Image\48.jpg" />
+    <Resource Include="Image\5.jpg" />
+    <Resource Include="Image\6.jpg" />
+    <Resource Include="Image\7.jpg" />
+    <Resource Include="Image\8.jpg" />
+    <Resource Include="Image\9.jpg" />
+    <Resource Include="Image\m1.jpg" />
+    <Resource Include="Image\m10.jpg" />
+    <Resource Include="Image\m11.jpg" />
+    <Resource Include="Image\m12.jpg" />
+    <Resource Include="Image\m13.jpg" />
+    <Resource Include="Image\m14.jpg" />
+    <Resource Include="Image\m15.jpg" />
+    <Resource Include="Image\m16.jpg" />
+    <Resource Include="Image\m17.jpg" />
+    <Resource Include="Image\m18.jpg" />
+    <Resource Include="Image\m19.jpg" />
+    <Resource Include="Image\m2.jpg" />
+    <Resource Include="Image\m20.jpg" />
+    <Resource Include="Image\m21.jpg" />
+    <Resource Include="Image\m22.jpg" />
+    <Resource Include="Image\m23.jpg" />
+    <Resource Include="Image\m24.jpg" />
+    <Resource Include="Image\m25.jpg" />
+    <Resource Include="Image\m26.jpg" />
+    <Resource Include="Image\m27.jpg" />
+    <Resource Include="Image\m28.jpg" />
+    <Resource Include="Image\m29.jpg" />
+    <Resource Include="Image\m3.jpg" />
+    <Resource Include="Image\m30.jpg" />
+    <Resource Include="Image\m31.jpg" />
+    <Resource Include="Image\m32.jpg" />
+    <Resource Include="Image\m33.jpg" />
+    <Resource Include="Image\m34.jpg" />
+    <Resource Include="Image\m35.jpg" />
+    <Resource Include="Image\m36.jpg" />
+    <Resource Include="Image\m37.jpg" />
+    <Resource Include="Image\m38.jpg" />
+    <Resource Include="Image\m39.jpg" />
+    <Resource Include="Image\m4.jpg" />
+    <Resource Include="Image\m40.jpg" />
+    <Resource Include="Image\m41.jpg" />
+    <Resource Include="Image\m42.jpg" />
+    <Resource Include="Image\m43.jpg" />
+    <Resource Include="Image\m44.jpg" />
+    <Resource Include="Image\m45.jpg" />
+    <Resource Include="Image\m46.jpg" />
+    <Resource Include="Image\m47.jpg" />
+    <Resource Include="Image\m48.jpg" />
+    <Resource Include="Image\m49.jpg" />
+    <Resource Include="Image\m5.jpg" />
+    <Resource Include="Image\m50.jpg" />
+    <Resource Include="Image\m6.jpg" />
+    <Resource Include="Image\m7.jpg" />
+    <Resource Include="Image\m8.jpg" />
+    <Resource Include="Image\m9.jpg" />
+    <Resource Include="Image\m96.jpg" />
+    <Resource Include="Image\m97.jpg" />
+    <Resource Include="Image\m98.jpg" />
+    <Resource Include="Image\m99.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
