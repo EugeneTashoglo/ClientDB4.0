@@ -44,7 +44,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(846, 509);
+            this.radioButton3.Location = new System.Drawing.Point(779, 478);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(44, 17);
             this.radioButton3.TabIndex = 24;
@@ -56,7 +56,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(846, 486);
+            this.radioButton2.Location = new System.Drawing.Point(698, 478);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(75, 17);
             this.radioButton2.TabIndex = 23;
@@ -68,7 +68,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(846, 463);
+            this.radioButton1.Location = new System.Drawing.Point(628, 478);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(64, 17);
             this.radioButton1.TabIndex = 22;
@@ -85,7 +85,7 @@
             "10",
             "50",
             "200"});
-            this.comboBox1.Location = new System.Drawing.Point(646, 499);
+            this.comboBox1.Location = new System.Drawing.Point(486, 478);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 21;
@@ -93,7 +93,7 @@
             // 
             // next
             // 
-            this.next.Location = new System.Drawing.Point(528, 500);
+            this.next.Location = new System.Drawing.Point(405, 478);
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(75, 23);
             this.next.TabIndex = 20;
@@ -103,7 +103,7 @@
             // 
             // back
             // 
-            this.back.Location = new System.Drawing.Point(447, 500);
+            this.back.Location = new System.Drawing.Point(324, 478);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(75, 23);
             this.back.TabIndex = 19;
@@ -114,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(679, 483);
+            this.label2.Location = new System.Drawing.Point(519, 462);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 17;
@@ -123,7 +123,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 484);
+            this.label1.Location = new System.Drawing.Point(58, 463);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 16;
@@ -131,24 +131,26 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 500);
+            this.textBox1.Location = new System.Drawing.Point(61, 481);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(241, 20);
             this.textBox1.TabIndex = 15;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Location = new System.Drawing.Point(61, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(927, 389);
+            this.dataGridView1.Size = new System.Drawing.Size(1033, 405);
             this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 643);
+            this.ClientSize = new System.Drawing.Size(1068, 605);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -160,7 +162,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Список Клиентов";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

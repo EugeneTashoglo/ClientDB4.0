@@ -6,18 +6,18 @@ namespace ClientDB4._0
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ServicePhoto")]
-    public partial class ServicePhoto
+    [Table("ProductOfService")]
+    public partial class ProductOfService
     {
-        public int ServicePhotoID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ProductOfServiceID { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string ServiceID { get; set; }
 
-        [Required]
-        [StringLength(1000)]
-        public string PhotoPath { get; set; }
+        public int? ProductID { get; set; }
+
+        public virtual Product Product { get; set; }
 
         public virtual Service Service { get; set; }
     }

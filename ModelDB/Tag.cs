@@ -15,13 +15,11 @@ namespace ClientDB4._0
             TagOfClient = new HashSet<TagOfClient>();
         }
 
-        public int ID { get; set; }
+        public int TagID { get; set; }
 
-        [Required]
         [StringLength(30)]
         public string Title { get; set; }
 
-        [Required]
         [StringLength(6)]
         public string Color { get; set; }
 

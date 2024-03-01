@@ -12,11 +12,12 @@ namespace ClientDB4._0
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            ProductOfService = new HashSet<ProductOfService>();
             ProductPhoto = new HashSet<ProductPhoto>();
             ProductSale = new HashSet<ProductSale>();
         }
 
-        public int ID { get; set; }
+        public int ProductID { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -32,9 +33,12 @@ namespace ClientDB4._0
 
         public bool IsActive { get; set; }
 
-        public int? ManufacturerID { get; set; }
+        public int? ManufactureID { get; set; }
 
         public virtual Manufacturer Manufacturer { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductOfService> ProductOfService { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }

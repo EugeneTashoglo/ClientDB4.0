@@ -9,7 +9,8 @@ namespace ClientDB4._0
     [Table("ProductSale")]
     public partial class ProductSale
     {
-        public int ID { get; set; }
+        [Key]
+        public int SaleID { get; set; }
 
         public DateTime SaleDate { get; set; }
 

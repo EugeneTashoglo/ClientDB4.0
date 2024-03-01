@@ -13,31 +13,29 @@ namespace ClientDB4._0
         public Client()
         {
             ClientService = new HashSet<ClientService>();
+            TagOfClient = new HashSet<TagOfClient>();
         }
 
         [Key]
         [StringLength(50)]
         public string LastName { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string FirstName { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string Patronymic { get; set; }
 
         [StringLength(1)]
-        public string GenderCode { get; set; }
+        public string Gender { get; set; }
 
-        [Required]
         [StringLength(20)]
         public string Phone { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? Birthday { get; set; }
 
-        public DateTime RegistrationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
 
         [StringLength(255)]
         public string Email { get; set; }
@@ -47,5 +45,8 @@ namespace ClientDB4._0
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientService> ClientService { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TagOfClient> TagOfClient { get; set; }
     }
 }

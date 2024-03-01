@@ -9,14 +9,15 @@ namespace ClientDB4._0
     [Table("DocumentByService")]
     public partial class DocumentByService
     {
-        public int ID { get; set; }
+        [Key]
+        public int DocID { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string ClientServiceID { get; set; }
+        public int ClientServiceID { get; set; }
 
         [Required]
         [StringLength(1000)]
         public string DocumentPath { get; set; }
+
+        public virtual ClientService ClientService { get; set; }
     }
 }

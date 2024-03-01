@@ -17,33 +17,38 @@ namespace ClientDB4._0
         private int pageSize = 10; // Размер страницы, количество записей на одной странице
         public Form1()
         {
-            InitializeComponent();
-            LoadDataFromDatabase();
+                InitializeComponent();
+                LoadDataFromDatabase();
+
+
             comboBox1.SelectedIndex = 0;
         }
 
-        private void LoadDataFromDatabase()
+      
+        private void LoadDataFromDatabase ()
         {
             using (ModelDB db = new ModelDB())
             {
                 try
                 {
-                    var skipAmount = (currentPage - 1) * pageSize;
+                    var skipAmount = ( currentPage - 1 ) * pageSize;
 
                     // Построение запроса для получения данных из базы данных
                     var query = db.Client.Join(db.ClientService,
-                        u => u.LastName,
-                        c => c.ClientID,
-                        (u, c) => new
-                        {
-                            FirstName = u.FirstName,
-                            LastName = u.LastName,
-                            GenderCode = u.GenderCode,
-                            Patronymic = u.Patronymic,
-                            Phone = u.Phone,
-                            Birthday = u.Birthday,
-                            Email = u.Email
-                        });
+                  client => client.LastName, // Предполагаем, что это имя столбца первичного ключа в таблице Client
+                  service => service.LastName,
+                  ( client, service ) => new
+                  {
+                      FirstName = client.FirstName,
+                      LastName = client.LastName,
+                      Patronymic = client.Patronymic,
+                      Email = client.Email,
+                      Phone = client.Phone,
+                      Birthday = client.Birthday,
+                      GenderCode = client.Gender,
+                      PhotoClient = client.PhotoClient // Предполагаем, что это поле с фотографией в таблице Client
+                  });
+
 
                     // Сортировка по фамилии перед пропуском записей
                     query = query.OrderBy(client => client.LastName);
@@ -67,7 +72,6 @@ namespace ClientDB4._0
 
 
 
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilterData();
@@ -80,12 +84,12 @@ namespace ClientDB4._0
                 string searchText = textBox1.Text.ToLower();
                 var filteredList = db.Client.Join(db.ClientService,
                     u => u.LastName,
-                    c => c.ClientID,
+                    c => c.LastName,
                     (u, c) => new
                     {
                         FirstName = u.FirstName,
                         LastName = u.LastName,
-                        GenderCode = u.GenderCode,
+                        GenderCode = u.Gender,
                         Patronymic = u.Patronymic,
                         Phone = u.Phone,
                         Birthday = u.Birthday,
@@ -133,12 +137,12 @@ namespace ClientDB4._0
 
                 var baseQuery = db.Client.Join(db.ClientService,
                     u => u.LastName,
-                    c => c.ClientID,
+                    c => c.LastName,
                     (u, c) => new ClientData
                     {
                         FirstName = u.FirstName,
                         LastName = u.LastName,
-                        GenderCode = u.GenderCode,
+                        GenderCode = u.Gender,
                         Patronymic = u.Patronymic,
                         Phone = u.Phone,
                         Birthday = u.Birthday,
@@ -209,12 +213,12 @@ namespace ClientDB4._0
         {
             var baseQuery = db.Client.Join(db.ClientService,
                 u => u.LastName,
-                c => c.ClientID,
+                c => c.LastName,
                 (u, c) => new ClientData
                 {
                     FirstName = u.FirstName,
                     LastName = u.LastName,
-                    GenderCode = u.GenderCode,
+                    GenderCode = u.Gender,
                     Patronymic = u.Patronymic,
                     Phone = u.Phone,
                     Birthday = u.Birthday,
@@ -287,5 +291,42 @@ namespace ClientDB4._0
             }
         }
 
+        private void btnFormVisit_Click ( object sender, EventArgs e )
+        {
+
+    
+        }
+
+
+
+        private void dataGridView1_CellContentClick ( object sender, DataGridViewCellEventArgs e )
+        {
+           
+        }
+
+        private void dataGridView1_CellDoubleClick ( object sender, DataGridViewCellEventArgs e )
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                // Далее можно обращаться к ячейкам этой строки, например:
+                // Получаем значение в первой ячейке выбранной строки
+                string valueInFirstCell = selectedRow.Cells[1].Value.ToString();
+                using (ModelDB db=new ModelDB())
+                {
+                    Client client = db.Client.Where(p => p.LastName == valueInFirstCell).FirstOrDefault();
+                    VisitForm vf = new VisitForm(client);
+                    vf.Show();
+                }
+
+                // Можно продолжить работать с другими ячейками выбранной строки
+            }
+            else
+            {
+                // Сообщаем пользователю, что ничего не выбрано
+                MessageBox.Show("Выберите строку в DataGridView.");
+            }
+        }
     }
 }

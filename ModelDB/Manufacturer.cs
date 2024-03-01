@@ -15,7 +15,8 @@ namespace ClientDB4._0
             Product = new HashSet<Product>();
         }
 
-        public int ID { get; set; }
+        [Key]
+        public int ManufactureID { get; set; }
 
         [Required]
         [StringLength(100)]

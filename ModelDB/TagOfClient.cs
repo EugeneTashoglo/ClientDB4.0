@@ -9,15 +9,16 @@ namespace ClientDB4._0
     [Table("TagOfClient")]
     public partial class TagOfClient
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ClientID { get; set; }
+        [StringLength(50)]
+        public string LastName { get; set; }
+
+        public int? TagID { get; set; }
 
         [Key]
-        [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int TagID { get; set; }
+        public int IDTagOfClient { get; set; }
+
+        public virtual Client Client { get; set; }
 
         public virtual Tag Tag { get; set; }
     }

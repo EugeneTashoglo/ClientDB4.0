@@ -9,7 +9,7 @@ namespace ClientDB4._0
     [Table("ProductPhoto")]
     public partial class ProductPhoto
     {
-        public int ID { get; set; }
+        public int ProductPhotoID { get; set; }
 
         public int ProductID { get; set; }
 

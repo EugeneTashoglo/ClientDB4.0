@@ -13,11 +13,12 @@ namespace ClientDB4._0
         public Service()
         {
             ClientService = new HashSet<ClientService>();
+            ProductOfService = new HashSet<ProductOfService>();
+            ServicePhoto = new HashSet<ServicePhoto>();
         }
 
-        [Key]
         [StringLength(100)]
-        public string Title { get; set; }
+        public string ServiceID { get; set; }
 
         [Column(TypeName = "money")]
         public decimal Cost { get; set; }
@@ -34,5 +35,11 @@ namespace ClientDB4._0
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientService> ClientService { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductOfService> ProductOfService { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServicePhoto> ServicePhoto { get; set; }
     }
 }
