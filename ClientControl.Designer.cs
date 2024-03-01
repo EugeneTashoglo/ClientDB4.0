@@ -37,37 +37,43 @@
             // labelNameService
             // 
             this.labelNameService.AutoSize = true;
+            this.labelNameService.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.labelNameService.Location = new System.Drawing.Point(22, 10);
             this.labelNameService.Name = "labelNameService";
-            this.labelNameService.Size = new System.Drawing.Size(35, 13);
+            this.labelNameService.Size = new System.Drawing.Size(41, 16);
             this.labelNameService.TabIndex = 0;
             this.labelNameService.Text = "label1";
             // 
             // Countfile
             // 
             this.Countfile.AutoSize = true;
+            this.Countfile.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.Countfile.Location = new System.Drawing.Point(22, 43);
             this.Countfile.Name = "Countfile";
-            this.Countfile.Size = new System.Drawing.Size(35, 13);
+            this.Countfile.Size = new System.Drawing.Size(41, 16);
             this.Countfile.TabIndex = 1;
             this.Countfile.Text = "label2";
+            this.Countfile.Click += new System.EventHandler(this.Countfile_Click);
             // 
             // buttonopenfile
             // 
+            this.buttonopenfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(74)))), ((int)(((byte)(109)))));
             this.buttonopenfile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonopenfile.Location = new System.Drawing.Point(325, 0);
+            this.buttonopenfile.Location = new System.Drawing.Point(321, 0);
             this.buttonopenfile.Name = "buttonopenfile";
-            this.buttonopenfile.Size = new System.Drawing.Size(75, 100);
+            this.buttonopenfile.Size = new System.Drawing.Size(75, 96);
             this.buttonopenfile.TabIndex = 3;
             this.buttonopenfile.Text = ">";
-            this.buttonopenfile.UseVisualStyleBackColor = true;
+            this.buttonopenfile.UseVisualStyleBackColor = false;
+            this.buttonopenfile.Click += new System.EventHandler(this.buttonopenfile_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.label1.Location = new System.Drawing.Point(22, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
             // 
@@ -75,13 +81,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Violet;
+            this.BackColor = System.Drawing.Color.White;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonopenfile);
             this.Controls.Add(this.Countfile);
             this.Controls.Add(this.labelNameService);
             this.Name = "ClientControl";
-            this.Size = new System.Drawing.Size(400, 100);
+            this.Size = new System.Drawing.Size(396, 96);
             this.ResumeLayout(false);
             this.PerformLayout();
 

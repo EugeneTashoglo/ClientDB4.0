@@ -328,5 +328,10 @@ namespace ClientDB4._0
                 MessageBox.Show("Выберите строку в DataGridView.");
             }
         }
+
+        private void Form1_Load ( object sender, EventArgs e )
+        {
+
+        }
     }
 }

@@ -112,8 +112,52 @@ namespace ClientDB4._0
 
         private void delete_Click ( object sender, EventArgs e )
         {
-          
+            if (selectedClient == null)
+            {
+                MessageBox.Show("Сначала выберите клиента для удаления.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить этого клиента?", "Подтверждение удаления", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    using (var db = new ModelDB())
+                    {
+                        // Находим клиента в базе данных
+                        var clientToDelete = db.Client.FirstOrDefault(c => c.Email == selectedClient.Email);
+                        if (clientToDelete != null)
+                        {
+                            // Удаляем связанные записи в таблице "TagOfClient"
+                            var relatedTags = db.TagOfClient.Where(t => t.LastName == clientToDelete.LastName).ToList();
+                            db.TagOfClient.RemoveRange(relatedTags);
+
+                            // Удаляем клиента из базы данных
+                            db.Client.Remove(clientToDelete);
+
+                            db.SaveChanges();
+                            MessageBox.Show("Клиент успешно удален.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Клиент не найден в базе данных.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Произошла ошибка при удалении клиента: {ex.ToString()}");
+                }
+                finally
+                {
+                    LoadClientsData(); // Обновляем отображение списка клиентов после удаления
+                    ClearFormFields(); // Очищаем поля формы после удаления
+                }
+            }
         }
+
+
 
         private void ClearFormFields()
         {
@@ -370,6 +414,11 @@ namespace ClientDB4._0
         private void checkBoxblack_CheckedChanged ( object sender, EventArgs e )
         {
             UpdateSelectedTags();
+        }
+
+        private void label2_Click ( object sender, EventArgs e )
+        {
+
         }
     }
 }
