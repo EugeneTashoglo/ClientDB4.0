@@ -389,6 +389,7 @@
             this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxPhoto.TabIndex = 48;
             this.pictureBoxPhoto.TabStop = false;
+            this.pictureBoxPhoto.Click += new System.EventHandler(this.pictureBoxPhoto_Click);
             // 
             // ClientEdit
             // 

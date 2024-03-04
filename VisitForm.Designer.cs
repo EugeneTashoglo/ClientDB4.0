@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent ()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisitForm));
             this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
@@ -63,8 +64,9 @@
             this.ClientSize = new System.Drawing.Size(422, 414);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VisitForm";
-            this.Text = "VisitForm";
+            this.Text = "Посещения клиента";
             this.ResumeLayout(false);
 
         }

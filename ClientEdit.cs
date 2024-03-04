@@ -52,7 +52,7 @@ namespace ClientDB4._0
                 dataGridView1.DataSource = clients;
             }
         }
-        private void buttonBrowse_Click(object sender, EventArgs e)
+        private void buttonBrowse_Click ( object sender, EventArgs e )
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -63,18 +63,30 @@ namespace ClientDB4._0
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string selectedFile = openFileDialog.FileName;
-                    string destPath = Path.Combine(@"C:\Users\kbk.local\Desktop\WebApp\ClientDB4.0\bin\Debug\Клиенты", Path.GetFileName(selectedFile));
-                    if (!File.Exists(destPath))
+                    try
                     {
-                        File.Copy(selectedFile, destPath);
+                        string selectedFile = openFileDialog.FileName;
+                        string appDirectory = Path.Combine(Environment.CurrentDirectory, "Клиенты"); // Используем относительный путь
+                        if (!Directory.Exists(appDirectory))
+                        {
+                            Directory.CreateDirectory(appDirectory); // Создаем директорию, если она не существует
+                        }
+                        string destPath = Path.Combine(appDirectory, Path.GetFileName(selectedFile));
+                        if (!File.Exists(destPath))
+                        {
+                            File.Copy(selectedFile, destPath);
+                        }
+                        pictureBoxPhoto.Image = Image.FromFile(destPath);
+                        pictureBoxPhoto.Tag = Path.Combine("Клиенты", Path.GetFileName(selectedFile)); // Сохраняем относительный путь в Tag
                     }
-                    pictureBoxPhoto.Image = Image.FromFile(destPath);
-                    pictureBoxPhoto.Tag = @"Клиенты\" + Path.GetFileName(selectedFile);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Произошла ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
-       
+
 
         private void buttonSave_Click ( object sender, EventArgs e )
         {
@@ -263,7 +275,8 @@ namespace ClientDB4._0
                 string photoPath = row.Cells["PhotoClient"].Value != null ? row.Cells["PhotoClient"].Value.ToString() : string.Empty;
                 if (!string.IsNullOrEmpty(photoPath))
                 {
-                    pictureBoxPhoto.Image = Image.FromFile(Path.Combine(@"C:\Users\kbk.local\Desktop\WebApp\ClientDB4.0\bin\Debug", photoPath));
+                    var fullPath = Path.Combine(Environment.CurrentDirectory, photoPath.TrimStart('\\')); // Удаляем начальный слеш, если он есть, для корректной работы Path.Combine
+                    pictureBoxPhoto.Image = Image.FromFile(fullPath);
                 }
                 else
                 {
@@ -417,6 +430,11 @@ namespace ClientDB4._0
         }
 
         private void label2_Click ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void pictureBoxPhoto_Click ( object sender, EventArgs e )
         {
 
         }
